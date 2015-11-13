@@ -17,7 +17,12 @@ class PostsController < ApplicationController
     #if current_user_session
     @post = Post.new
     render template: "posts/new"
+  end
 
+  def tags_name=(args)
 
-end
+  end
+  def tags_name
+
+  end
 end
