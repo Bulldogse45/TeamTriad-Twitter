@@ -9,15 +9,15 @@
 
               <%= form_for @post do |f| %>
               <div style="padding-bottom: 10px;" class="form_group">
-                <%= f.text_field :user_id %>
-              </div>
                 <%= f.text_area :blurb, size: "60x12" %>
+              </div>
+                <%#= f.text_area :blurb, size: "60x12" %>
                 <% @posts = Post.all %>
                 <% @posts.each do |p| %>
-                <% p.author_id %>
+                <% p.user_id %>
                 <% end %>
                 <%# if current_user_session %>
-  <h6><form name="myForm" onsubmit="return validateForm()" action="<%= new_post_path %>" method="get">
+  <h6><form name="myForm" action="<%= new_post_path %>" method="get">
   <input type="submit" value="SAVE">
 </form></h6> <% end %>
 
