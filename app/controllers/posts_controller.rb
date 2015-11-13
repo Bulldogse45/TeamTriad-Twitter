@@ -19,10 +19,14 @@ class PostsController < ApplicationController
     render template: "posts/new"
   end
 
-  def tags_name=(args)
-
+  def tag_names=(tags)
+    tags.split(",").collect{|t| t.strip}.each do |tag|
+      this_tag = Tag.find_or_create_by(name: Tag.clean_name(tag))
+      self.tags << this_tag
+    end
   end
-  def tags_name
 
+  def tag_names
+    self.tags.collect{|t| t.name}.join(", ")
   end
 end
